@@ -507,6 +507,7 @@ def experiment_2_latency():
     print(f"    High-repeat turns: {co_vs_ind_high:.1f}%\n")
     print("  [Conclusion] Co-design achieves largest gains in high-repeat-tool scenarios.\n")
 
+    # also return low/high repeat averages for plotting
     return {
         "vanilla_avg": float(np.mean(vanilla_times)),
         "kv_only_avg": float(np.mean(kv_only_times)),
@@ -514,6 +515,14 @@ def experiment_2_latency():
         "codesign_avg": float(np.mean(co_times)),
         "reduction_pct": co_vs_ind_avg,
         "high_repeat_reduction_pct": co_vs_ind_high,
+        "vanilla_low_avg": float(avg(vanilla_times, low_idx)),
+        "vanilla_high_avg": float(avg(vanilla_times, high_idx)),
+        "kv_only_low_avg": float(avg(kv_only_times, low_idx)),
+        "kv_only_high_avg": float(avg(kv_only_times, high_idx)),
+        "ind_low_avg": float(avg(ind_times, low_idx)),
+        "ind_high_avg": float(avg(ind_times, high_idx)),
+        "co_low_avg": float(avg(co_times, low_idx)),
+        "co_high_avg": float(avg(co_times, high_idx)),
     }
 
 
@@ -921,3 +930,18 @@ if __name__ == "__main__":
     r6 = experiment_6_ablation()
     experiment_7_visualization(r2, r5, r6)
     print_summary(r1, r2, r3, r4, r5, r6)
+    # Save structured results for downstream plotting and inclusion in report
+    try:
+        results = {
+            'exp1': r1,
+            'exp2': r2,
+            'exp3': r3,
+            'exp4': r4,
+            'exp5': r5,
+            'exp6': r6,
+        }
+        with open('results.json', 'w', encoding='utf-8') as fout:
+            json.dump(results, fout, ensure_ascii=False, indent=2)
+        print('\n[✓] Saved structured results to results.json')
+    except Exception as e:
+        print(f"[!] Failed to save results.json: {e}")

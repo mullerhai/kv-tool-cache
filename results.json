@@ -1,0 +1,95 @@
+{
+  "exp1": {
+    "repeat_ratio": 0.5333333333333333,
+    "avg_kv_sim": 0.20668264751633006,
+    "avg_cross_kv_sim": 0.09824312677503459,
+    "avg_jaccard": 0.02777777777777778,
+    "kv_redundancy_pct": 54.65116279069768
+  },
+  "exp2": {
+    "vanilla_avg": 0.26721599433318866,
+    "kv_only_avg": 0.19054593046506246,
+    "independent_avg": 0.11526401653391076,
+    "codesign_avg": 0.11435020293380754,
+    "reduction_pct": 0.7928004138519431,
+    "high_repeat_reduction_pct": -0.13795063002578445,
+    "vanilla_low_avg": 0.26258620228639173,
+    "vanilla_high_avg": 0.271267062374136,
+    "kv_only_low_avg": 0.1955917974274988,
+    "kv_only_high_avg": 0.18613079687293066,
+    "ind_low_avg": 0.18929583314456977,
+    "ind_high_avg": 0.05048617699958413,
+    "co_low_avg": 0.1872580657166379,
+    "co_high_avg": 0.05055582299883099
+  },
+  "exp3": {
+    "independent_joint_hit": 0.5333333333333333,
+    "codesign_joint_hit": 0.5333333333333333,
+    "ind_tool_hit_rate": 0.5333333333333333,
+    "co_tool_hit_rate": 0.5333333333333333
+  },
+  "exp4": {
+    "avg_ppl_vanilla": 801.8551096208929,
+    "avg_ppl_cached": 801.8551096208929,
+    "ppl_delta": 0.0,
+    "tool_accuracy_vanilla": 1.0,
+    "tool_accuracy_cached": 1.0
+  },
+  "exp5": {
+    "context_lengths": [
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "independent_latencies": [
+      0.07308722199862434,
+      0.07686548600031529,
+      0.08042126366490265,
+      0.09305052767012967,
+      0.10968519466647801
+    ],
+    "codesign_latencies": [
+      0.07364165300047414,
+      0.07403519433379795,
+      0.08173630566792174,
+      0.08819069433229743,
+      0.12013491666827274
+    ],
+    "ind_growth_pct": 50.0743791692377,
+    "co_growth_pct": 63.13446503909853
+  },
+  "exp6": {
+    "Full Co-design (Ours)": {
+      "avg_latency": 0.09178507219912717,
+      "tool_hit_rate": 0.5333333333333333,
+      "kv_hit_rate": 1.0,
+      "joint_hit_rate": 0.5333333333333333
+    },
+    "w/o KV-Tool Linking": {
+      "avg_latency": 0.13235343886626652,
+      "tool_hit_rate": 0.5333333333333333,
+      "kv_hit_rate": 0.0,
+      "joint_hit_rate": 0.0
+    },
+    "w/o Tool-Aware Eviction": {
+      "avg_latency": 0.09117397786612855,
+      "tool_hit_rate": 0.5333333333333333,
+      "kv_hit_rate": 1.0,
+      "joint_hit_rate": 0.5333333333333333
+    },
+    "w/o KV Prefetching": {
+      "avg_latency": 0.09500798333271329,
+      "tool_hit_rate": 0.5333333333333333,
+      "kv_hit_rate": 0.5333333333333333,
+      "joint_hit_rate": 0.5333333333333333
+    },
+    "w/o Unified Scheduler": {
+      "avg_latency": 0.0935656082011216,
+      "tool_hit_rate": 0.5333333333333333,
+      "kv_hit_rate": 1.0,
+      "joint_hit_rate": 0.5333333333333333
+    }
+  }
+}
