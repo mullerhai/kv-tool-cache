@@ -29,7 +29,7 @@ import torch.nn.functional as F
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple, Any
 from transformers import AutoTokenizer, AutoModelForCausalLM
-
+from transformers.cache_utils import  Cache ,DynamicCache
 warnings.filterwarnings("ignore")
 
 # ─────────────────────────────────────────────────────────────────────────────
